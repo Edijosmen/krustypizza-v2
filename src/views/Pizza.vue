@@ -83,7 +83,7 @@
             <div class="col-12 col-sm-6 col-md-4"
               v-for="imagen in imagenes"            >
               <!--Aqui va el componente imagen-->
-              <Imagen :imagen="imagen" />
+              <Imagen :imagen="imagen" v-on:productos_seleccionados="listarProductosCarrito"/>
             </div>
         </div>
       </div>
@@ -111,7 +111,14 @@ export default {
   },
   data(){
     return {
-      imagenes: [] 
+      imagenes: [],
+      lista_select_product: [],
+    }
+  },
+  methods:{
+    listarProductosCarrito: function(productos){
+      this.lista_select_product.push(productos)
+      console.log(this.lista_select_product)
     }
   },
   mounted(){
