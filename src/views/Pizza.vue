@@ -81,7 +81,7 @@
       <div class="contend">
         <div class="row">
             <div class="col-12 col-sm-6 col-md-4"
-              v-for="imagen in imagenes"            >
+              v-for="imagen in imagenes" :key="imagen.id"           >
               <!--Aqui va el componente imagen-->
               <Imagen :imagen="imagen" />
             </div>
