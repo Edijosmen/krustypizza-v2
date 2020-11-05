@@ -16,7 +16,7 @@
 
         <button         
         class="btn btn-primary" 
-        @click="agregar_producto()">
+        v-on:click="agregar_producto">
         Agregar</button>
       </div>
     </div>
@@ -39,8 +39,10 @@ export default {
       }
     },
     methods:{
-      agregar_producto(){
+      agregar_producto: function(){ 
+        this.$emit('productos_seleccionados', this.imagen)
         //Creamos el objeto de venta
+        /*
         if(this.estado){
         axios.post("http://127.0.0.1:8000/ventas/ventas/", {
           total: 5000
@@ -61,6 +63,7 @@ export default {
         this.producto += 1
         console.log(this.producto)
         console.log(this.precio_tmp)
+      */
       }
     },
 }
