@@ -118,7 +118,9 @@ export default {
   methods:{
     listarProductosCarrito: function(productos){
       this.lista_select_product.push(productos)
-      console.log(this.lista_select_product)
+      //Esto posiblemente se puede hacer con $watch
+      window.localStorage.setItem('select_product', JSON.stringify(this.lista_select_product));
+      //console.log(this.lista_select_product)
     }
   },
   mounted(){
@@ -126,9 +128,12 @@ export default {
     .then(response=>{
         //console.log(response.data)
         this.imagenes = response.data.results
+
     })    
     }
 }
+
+
 </script>
 
 

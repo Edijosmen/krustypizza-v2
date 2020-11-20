@@ -13,6 +13,9 @@
             </ul>
         </div>
     </nav>
+    <pre>
+        {{$data}}
+    </pre>
     <section class ="content" >
         <div class="container contenido">
             <div class="row">
@@ -109,6 +112,16 @@
 import Foother from '@/components/Foother.vue'
 export default {
     name: 'Footer',
+    created(){
+        if (window.localStorage.getItem('select_product'))
+            this.lista_product = JSON.parse(window.localStorage.getItem('select_product'));
+        
+    },
+    data(){
+        return {
+            lista_product: []
+        }
+    },
   components: {
     Foother
   }
