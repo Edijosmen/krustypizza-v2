@@ -13,6 +13,7 @@
             </ul>
         </div>
     </nav>
+
     <section class ="content" >
         <div class="container contenido">
             <div class="row">
@@ -98,6 +99,11 @@
             </div>
         </div>
     </section>
+    <hr>
+    <section>
+        <!--Pasar variables a los componentes seria todo mucho más sencillo en el orden correcto-->
+        <AppShoppingCart />
+    </section>
      <div>
          <Foother/>
    </div>
@@ -107,19 +113,23 @@
 
 <script>
 import Foother from '@/components/Foother.vue'
+import AppShoppingCart from "../components/AppShoppingCart.vue";
 
 export default {
     name: 'Footer',
-    props: ['datimage'],
+    created(){
+        if (window.localStorage.getItem('select_product'))
+            this.lista_product = JSON.parse(window.localStorage.getItem('select_product'));
+        
+    },
+    data(){
+        return {
+            lista_product: []
+        }
+    },
   components: {
-    Foother
-  },
-  created(){
-      bus.$on('listaProduct',(data)=>{
-          this.dfd.push(data)
-          
-      })
-      console.log(this.dfd)
+    Foother,
+    AppShoppingCart,
   }
 }
 </script>
