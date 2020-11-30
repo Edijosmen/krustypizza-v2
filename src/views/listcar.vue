@@ -17,7 +17,7 @@
         <div class="container contenido">
             <div class="row">
                 <div class="col-md-6 product">
-                    <div class="row bord">
+                    <div class="row bord" >
                         <div class ="col-sm-6  col-md-5 prod">
                               <label class ="font-weight-bold" for="">Productos</label>
                               <div >
@@ -30,8 +30,8 @@
                                </div>
                         </div>
                         <div class ="col-sm-6 col-md-2 ">
-                             <label class="col font-weight-bold" for="">Precio </label>
-                             <label  class="col" for="">$30.000</label>
+                             <label class="col font-weight-bold" for="">Precio999 </label>
+                             <label  class="col" for="">3434</label>
                         </div>
                         <div class ="col-sm-6 col-md-2"> 
                              <label class="col font-weight-bold" for="">Cantidad</label>
@@ -56,7 +56,7 @@
                         </div>
                         <div class ="col-sm-6 col-md-2 ">
                              <label class="col font-weight-bold" for="">Precio </label>
-                             <label  class="col" for="">$30.000</label>
+                             <label  class="col" for="">343</label>
                         </div>
                         <div class ="col-sm-6 col-md-2"> 
                              <label class="col font-weight-bold" for="">Cantidad</label>
@@ -107,10 +107,19 @@
 
 <script>
 import Foother from '@/components/Foother.vue'
+
 export default {
     name: 'Footer',
+    props: ['datimage'],
   components: {
     Foother
+  },
+  created(){
+      bus.$on('listaProduct',(data)=>{
+          this.dfd.push(data)
+          
+      })
+      console.log(this.dfd)
   }
 }
 </script>

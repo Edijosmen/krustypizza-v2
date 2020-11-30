@@ -21,9 +21,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "Inicio" */ '../views/Inicio.vue')
   },
   {
-    path: '/list',
+    path: '/lista',
     name: 'lista',
-    component: () => import(/* webpackChunkName: "Inicio" */ '../views/listcar.vue')
+    component: () => import(/* webpackChunkName: "Inicio" */ '../views/Listcar.vue')
   },
   {
     path: '/pizza',
