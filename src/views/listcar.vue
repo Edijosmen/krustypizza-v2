@@ -13,9 +13,7 @@
             </ul>
         </div>
     </nav>
-    <pre>
-        {{$data}}
-    </pre>
+
     <section class ="content" >
         <div class="container contenido">
             <div class="row">
@@ -101,6 +99,11 @@
             </div>
         </div>
     </section>
+    <hr>
+    <section>
+        <!--Pasar variables a los componentes seria todo mucho más sencillo en el orden correcto-->
+        <AppShoppingCart />
+    </section>
      <div>
          <Foother/>
    </div>
@@ -110,6 +113,8 @@
 
 <script>
 import Foother from '@/components/Foother.vue'
+import AppShoppingCart from "../components/AppShoppingCart.vue";
+
 export default {
     name: 'Footer',
     created(){
@@ -123,7 +128,8 @@ export default {
         }
     },
   components: {
-    Foother
+    Foother,
+    AppShoppingCart,
   }
 }
 </script>

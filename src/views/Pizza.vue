@@ -89,7 +89,10 @@
       </div>
     </div>        
   </section>
-
+  <hr>
+  <section>
+    <AppProductList />
+  </section>
   <Foother />
 </div>
  
@@ -102,12 +105,20 @@ import Foother from '@/components/Foother.vue'
 import Navbaru from '@/components/Navbaru.vue'
 import axios from 'axios'
 
+//import ProductoService from "../services/Productos.js";
+import AppProductList from "../components/AppProductList.vue";
+
 export default {
+  created(){
+    //ProductoService.get().then(items => (this.imagenes = items.data.results));
+
+  },
   name: 'Pizza',
   components: {
       Imagen,
       Navbaru,
-      Foother
+      Foother,
+      AppProductList
   },
   data(){
     return {
@@ -124,12 +135,14 @@ export default {
     }
   },
   mounted(){
+    //ProductoService.get().then(items => (this.imagenes = items.data.results));
+    /*
     axios.get("http://127.0.0.1:8000/ventas/productos/")
     .then(response=>{
         //console.log(response.data)
         this.imagenes = response.data.results
 
-    })    
+    })*/    
     }
 }
 
