@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Inicio.vue'
+import Lista from '../views/listcar.vue'
 
 Vue.use(VueRouter)
 
@@ -18,12 +19,12 @@ const routes = [
   {
     path: '/inicio',
     name: 'Inicio',
-    component: () => import(/* webpackChunkName: "Inicio" */ '../views/Inicio.vue')
+    component: Lista
   },
   {
-    path: '/lista',
+    path: '/list',
     name: 'lista',
-    component: () => import(/* webpackChunkName: "Inicio" */ '../views/Listcar.vue')
+    component: () => import(/* webpackChunkName: "Inicio" */ '../views/listcar.vue')
   },
   {
     path: '/pizza',
