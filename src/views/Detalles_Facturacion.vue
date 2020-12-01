@@ -1,8 +1,8 @@
 <template>
 <div>
-    <Navbaru/>
     <div class="container print">
-        <!--LOGO-->
+        <!-- asdasdf 
+        <!--LOGO
         <div class="row logovv">
                 <div class="col-4">
                     <div class="container logovv">
@@ -19,7 +19,7 @@
                     </div>
                 </div>     
         </div>
-        <!--NAVBAR-->
+        <!--NAVBAR
         <div class="row">
              <div class="col">
                
@@ -40,6 +40,8 @@
                     </div>   
             </div>
         </div>   
+        -->
+
         <!--COLUMNA FORMULARIO DE FACTURACIÓN-->
         <div class="row detalles">
             <div class="col-xl-6">
@@ -162,13 +164,11 @@
 </template>
 
 <script>
-    import Navbaru from '@/components/Navbaru.vue'
     import Foother from '@/components/Foother.vue'
     export default {
     name: 'Footer',
     components: {
-        Foother,
-        Navbaru
+        Foother
      }
     }
 </script>

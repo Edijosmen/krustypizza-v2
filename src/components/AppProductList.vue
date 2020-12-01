@@ -1,32 +1,34 @@
 <template>
-  <div>
-    <h2>Listado de productos</h2>
-    <hr />
-    <ul>
-      <li
-        :class="{ 'sold-out': $store.getters.nearlySoldOut(product.id) }"
-        @click="selectProduct(product)"
-        v-for="product in productsOnStock"
-        :key="product.id"
-      >
-    <div
-      class="card"
-      style="width: 18rem;"
-    >
-      <img
-        :src="product.img_product"
-        class="card-img-top"
-        alt="..."
-      >
-      <div class="card-body">
-        <h5 class="card-title">{{product.nombre}}</h5>
-        <p class="card-text">{{product.descripcion}}</p>
-        <p class="card-text">${{product.precio}}</p>
-        <button @click="addToCart(product)">Add</button>
+  <div class="container">
+    <div class="contend">
+      <div class="row">
+        <div
+          class="col-12 col-sm-6 col-md-4"
+          @click="selectProduct(product)"
+          v-for="product in productsOnStock"
+          :key="product.id"
+        >
+          <div
+            class="card"
+            style="width: 18rem;"
+          >
+            <img 
+               
+              :src="product.img_product"
+              class="card-img-top"
+              alt="..."
+              width="150" height="150"
+            >
+            <div class="card-body">
+              <h5 class="card-title">{{product.nombre}}</h5>
+              <p class="card-text">{{product.descripcion}}</p>
+              <p class="card-text">${{product.precio}}</p>
+              <button class="btn btn-primary" @click="addToCart(product)">Agregar</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -73,14 +75,3 @@ export default {
 };
 </script>
 
-<style scoped>
-ul {
-  text-align: left;
-}
-.sold-out {
-  background-color: lightpink;
-  border: 3px solid tomato;
-  padding: 0.3rem;
-  margin: 0.1rem;
-}
-</style>

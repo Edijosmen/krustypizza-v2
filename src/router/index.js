@@ -19,27 +19,27 @@ const routes = [
   {
     path: '/inicio',
     name: 'Inicio',
-    component: Lista
+    component: Home
   },
   {
     path: '/list',
     name: 'lista',
-    component: () => import(/* webpackChunkName: "Inicio" */ '../views/listcar.vue')
+    component: Lista
   },
   {
     path: '/pizza',
     name: 'pizza',
-    component: () => import(/* webpackChunkName: "Inicio" */ '../views/Pizza.vue')
+    component: () => import(/* webpackChunkName: "Pizza" */ '../views/Pizza.vue')
   },
   {
-    path: '/Detalles-facturacion',
+    path: '/detallesfacturacion',
     name: 'facturacion',
-    component: () => import(/* webpackChunkName: "Inicio" */ '../views/Detalles_Facturacion.vue')
+    component: () => import(/* webpackChunkName: "Detalles_Facturacion" */ '../views/Detalles_Facturacion.vue')
   },
   {
     path: '/Pedidos',
     name: 'pedidos',
-    component: () => import(/* webpackChunkName: "Inicio" */ '../views/Pedidos.vue')
+    component: () => import(/* webpackChunkName: "Pedidos" */ '../views/Pedidos.vue')
   },
 ]
 
