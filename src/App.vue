@@ -1,9 +1,19 @@
 <template>
-  <div id="app">
-    
+  <div id="app">   
+    <Navbaru />
     <router-view/>
   </div>
 </template>
+
+<script>
+import Navbaru from "./components/Navbaru";
+export default {
+  name: "App",
+  components:{
+    Navbaru
+  }
+}
+</script>
 
 <style>
 #app {

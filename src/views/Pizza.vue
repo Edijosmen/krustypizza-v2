@@ -1,6 +1,51 @@
 <template>
 <div>
- <Navbaru />
+  
+  <!--seccion de domicilio -->
+  <section class="lista Pizza domicilio">
+    <div class="container domicilio">
+      <div class="row justify-content-center">
+        <div class="col-sm-6 col-md-6">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 ">
+              <i class="fas fa-bicycle fa-10x bike"></i>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div
+                class="card"
+                style="width: 18rem;"
+              >
+                <div class="card-header font-weight-bold">
+                  Horario de Domicilio
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Domingo a Jueves </li>
+                  <li class="list-group-item">11:30 AM a 10:30 PM</li>
+                  <li class="list-group-item">Viernes a Sabados</li>
+                  <li class="list-group-item">11:0 AM a 11:30 PM</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- contenido de la lista productos
+  <section>
+    <div class="container">
+      <div class="contend">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4"
+              v-for="imagen in imagenes" :key="imagen.id"           >
+              <!--Aqui va el componente imagen
+              <Imagen :imagen="imagen" v-on:productos_seleccionados="listarProductosCarrito"/>
+            </div>
+        </div>
+      </div>
+    </div>        
+  </section>
+  -->
   <div class="container">
     <nav
       class="navbar navbar-light navbar-expand-sm"
@@ -45,51 +90,6 @@
       </div>
     </nav>
   </div>
-  <!--seccion de domicilio -->
-  <section class="lista Pizza domicilio">
-    <div class="container domicilio">
-      <div class="row justify-content-center">
-        <div class="col-sm-6 col-md-6">
-          <div class="row">
-            <div class="col-sm-12 col-md-6 ">
-              <i class="fas fa-bicycle fa-10x bike"></i>
-            </div>
-            <div class="col-sm-12 col-md-6">
-              <div
-                class="card"
-                style="width: 18rem;"
-              >
-                <div class="card-header font-weight-bold">
-                  Horario de Domicilio
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Domingo a Jueves </li>
-                  <li class="list-group-item">11:30 AM a 10:30 PM</li>
-                  <li class="list-group-item">Viernes a Sabados</li>
-                  <li class="list-group-item">11:0 AM a 11:30 PM</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- contenido de la lista productos-->
-  <section>
-    <div class="container">
-      <div class="contend">
-        <div class="row">
-            <div class="col-12 col-sm-6 col-md-4"
-              v-for="imagen in imagenes" :key="imagen.id"           >
-              <!--Aqui va el componente imagen-->
-              <Imagen :imagen="imagen" v-on:productos_seleccionados="listarProductosCarrito"/>
-            </div>
-        </div>
-      </div>
-    </div>        
-  </section>
-  <hr>
   <section>
     <AppProductList />
   </section>

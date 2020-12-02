@@ -1,9 +1,5 @@
 <template>
 <div>
-      <div id="nav">
-        <router-link to="/inicio">Inicio</router-link> |
-        <router-link to="/login">Ingresar</router-link>
-    </div>
   <div class="about">
     <section class="login">
       <section class="container-fluid bg">
@@ -70,7 +66,6 @@
     </section>
   </div>
 </div>
-
 </template>
 
 <script>

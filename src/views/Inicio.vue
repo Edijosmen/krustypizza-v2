@@ -1,11 +1,8 @@
 <template>
 <div>
-    <div id="nav">
-        <router-link to="/inicio">Inicio</router-link> |
-        <router-link to="/login">Ingresar</router-link>
-    </div>
-   <!--LOLO-->
-    <div >
+   <!--some-->
+    <div >        
+        <!--
         <div class="container">
             <nav class="border border-dark navbar navbar-light navbar-expand-sm" style="background-color: #f4f9fc;">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +18,7 @@
                 </div>
             </nav>
         </div>
-        
+        -->
         <div class=" container-fluid cabeza">
             <section class = "row justify-content-center">
                 <div class = " col-sm-12 col-md-6">
@@ -45,11 +42,11 @@
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
+                                <span class="sr-only">Anterio</span>
                             </a>
                             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
+                                <span class="sr-only">Siguiente</span>
                             </a>
                         </div>
                     </div>
