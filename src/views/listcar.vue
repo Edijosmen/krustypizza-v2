@@ -134,9 +134,7 @@ export default {
 }
 </script>
 <style scoped>
-.prod{
-    /*padding-right: 90px;*/
-}
+
 .contenido{
     background-color: #f2f2f2
 }
