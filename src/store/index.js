@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import shop from "../api/shop.js"
 import cart from "./cart.js";
 import products from "./products.js";
+import adm from "./adm.js";
 
 Vue.use(Vuex);
 
@@ -10,7 +11,8 @@ export default new Vuex.Store({
   //strict: true,
   modules: {
     cart,
-    products
+    products,
+    adm,
   },
   state: {
     checkoutError: false

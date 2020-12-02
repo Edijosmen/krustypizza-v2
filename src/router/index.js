@@ -41,6 +41,26 @@ const routes = [
     name: 'pedidos',
     component: () => import(/* webpackChunkName: "Pedidos" */ '../views/Pedidos.vue')
   },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import(/* webpackChunkName: "Inicio" */ '../views/Admin.vue')
+  },
+  {
+    path: '/create-producto',
+    name: 'newporducts',
+    component: () => import(/* webpackChunkName: "Inicio" */ '../views/admin/Registroproducts.vue')
+  },
+  {
+    path: '/create-proveedor',
+    name: 'newproveedor',
+    component: () => import(/* webpackChunkName: "Inicio" */ '../views/admin/CrearProveedor.vue')
+  },
+  {
+    path: '/proveedor/:id/editar',
+    name: 'editarproveedor',
+    component: () => import(/* webpackChunkName: "Inicio" */ '../views/admin/EditarProveedor.vue')
+  },
 ]
 
 const router = new VueRouter({
