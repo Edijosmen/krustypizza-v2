@@ -44,16 +44,6 @@ export default {
         }
     },
     methods:{
-        saveproveedor(){
-            axios.post("http://127.0.0.1:8000/compras/proveedores/",{
-                nombre: this.nombre,
-                telefono: this.cell,
-                correo: this.email,
-                direccion: this.direcc
-            }).then(response=>{
-                this.$router.push("/admin")
-            })
-        },
         saveEditorproveedor(){
             axios.put("http://127.0.0.1:8000/compras/proveedores/"+this.id,{
                 nombre: this.nombre,

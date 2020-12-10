@@ -68,6 +68,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "Inicio" */ '../views/Registro.vue')
   },
   
+  {
+    path: '/producto/:id/editar',
+    name: 'editarproduct',
+    component: () => import(/* webpackChunkName: "Inicio" */ '../views/admin/EditarProducts.vue')
+  },
 ]
 
 const router = new VueRouter({
