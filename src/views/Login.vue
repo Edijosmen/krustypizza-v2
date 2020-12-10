@@ -22,7 +22,7 @@
                   class="form-control"
                   id="nombre"
                   aria-describedby="emailHelp"
-                  v-model="nombre"
+                  v-model="user.nombre"
                 />
               </div>
               <div class="form-group">
@@ -31,7 +31,7 @@
                   type="password"
                   class="form-control"
                   id="password"
-                  v-model="password"
+                  v-model="user.password"
                 />
               </div>
               <div class="form-group">
@@ -54,10 +54,12 @@
               <div class="form-group">
                 <button type="submit" class="btn btn-block bt">Google</button>
               </div>
-
+              <div class="login-choice"><span>or Sign In with</span></div>
+               <SocialLogin />
               <div class="form">
-                <label for="registra">No tienes cuanta</label>
-                <a href="#">Registrar ahora</a>
+                <label for="registra">No tienes cuenta</label>
+                <a href="#" @click.prevent="registerNow">Registrar ahora</a>
+
               </div>
             </form>
           </section>
@@ -71,33 +73,46 @@
 <script>
 // @ is an alias to /src
 import axios from 'axios'
+import SocialLogin from '@/components/SocialLogin'
+import ProductoService from "../services/Productos.js";
+
+import AuthService from '@/services/Auth.service.js'
 export default {
   name: 'Login',
+  components: {
+    SocialLogin
+  },
   data(){
     return {
+      user:{
+        nombre: "",
+        password: "",
+        token: ""
+      }, //con este objeto controlamos los datos del usuario
       nombre: "",
       password: "",
-      error: false
     }
   },
   methods:{
     //Iniciamos el proceso de consumo del api rest de django
     login(){
-      this.error=false
-      axios.post("http://127.0.0.1:8000/auth/",{
-        username: this.nombre,
-        password: this.password
-      },{
-        headers: {
-          'Content-Type':'application/json',
-          //"Authorization": "JWT " + localStorage.getItem("token")
-        }
-      })
+      AuthService.login(this.user)
       .then((response)=>{
         //console.log(response.data)
-        localStorage.setItem('token', response.data.token)
-        this.$router.push('/inicio')
-      })
+            this.user.token = response.data.token
+            var userInfo = {
+            loginType: 'local',
+            local: this.user
+          }
+          //this.$store.commit('setLoginUser', userInfo)
+          this.$store.dispatch("setLoginUser", userInfo);
+          this.$router.push('/inicio')
+      }).catch(error => {
+          console.log('error', error)
+        })
+    },
+    registerNow(){
+      this.$router.push("/registrar")
     }
   }
 }

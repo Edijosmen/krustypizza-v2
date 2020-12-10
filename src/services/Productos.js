@@ -4,6 +4,6 @@ const resource = 'ventas/productos/';
 
 export default {
     get() {
-        return Service.get(resource);
+        return Service.post(resource);
     },
 }
