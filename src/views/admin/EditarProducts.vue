@@ -2,7 +2,7 @@
     <div class="container" >
         <div class="abs-center">
        
-        <form @submit.prevent="guardar" enctype="multipart/form-data">
+        <form @submit.prevent="EditarProduct" enctype="multipart/form-data">
         <div class="form-group">
             <h2>Agregar Productos</h2>
         </div>
@@ -31,7 +31,7 @@
         </div>
         <div class="form-group row">
             <label for="exampleInputPassword1">precio</label>
-            <input type="text" v-model.number="precio" class="form-control" id="exampleInputPassword1">
+            <input type="text" v-model="precio" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="form-group">
             <div class="form-group">
@@ -47,6 +47,7 @@
             {{imagen}}
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
+         <a href="/admin" class="btn btn-primary ml-3">Cancelar</a>
         </form>
         </div>
        
@@ -55,23 +56,24 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 import productos from '../../services/admin/Adproducto.js'
 import categoria from '../../services/admin/Categoria.js'
 import ingredients from '../../services/admin/Ingredients.js'
 export default {
-    name: 'registroProducto',
+    name: 'EditarProducto',
     data() {
         return {
+            id: null,
             Codigo: '',
             Nombre:'',
             descripcion: '',
-            precio: null,
-            categoria:[],
+            precio: '',
+            categoria: '',
             ingredientes: [],
             imagen : null,
             cate:[],
-            ingred:[],
+            ingred: [],
         }
     },
     methods: {
@@ -80,7 +82,7 @@ export default {
             console.log(img)
             this.imagen = img
         },
-        guardar(){
+        EditarProduct(){
             let formData = new FormData()
             formData.append('codigo',this.Codigo)
             formData.append('nombre',this.Nombre)
@@ -93,7 +95,7 @@ export default {
             formData.append('categoria',this.categoria)
             
           
-            productos.create(formData)
+            productos.update(formData,this.id)
                 .then(response=>{
                     //console.log(response.data)
                     this.$router.push("/admin")
@@ -103,15 +105,25 @@ export default {
         },
     },
     mounted(){
+    this.id= this.$route.params.id
     categoria.get()
-    .then(response=>{
-        console.log(response.data.results)
-        this.cate = response.data.results
-        }) 
-    ingredients.get().then(response=>{
-        this.ingred=response.data.results
+        .then(response=>{
+            this.cate = response.data.results
+            }); 
+    ingredients.get().
+        then(response=>{
+            this.ingred=response.data.results
         })
-    
+    productos.edit(this.id).then(response=>{
+           this.Codigo= response.data.codigo,
+           this.Nombre = response.data.nombre,
+           this.descripcion = response.data.descripcion,
+           this.precio = response.data.precio,
+           this.categoria = response.data.categoria,
+           this.ingredientes = response.data.ingredientes,
+           this.imagen = response.data.img_product
+           
+        })
     },
     /*
     async created(){

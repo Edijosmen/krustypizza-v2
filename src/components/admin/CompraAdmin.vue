@@ -58,9 +58,9 @@ export default {
     },
     mounted(){
         this.token= localStorage.getItem("token"),
-        axios.get("http://127.0.0.1:8000/compras/compraproduct/",{
+        axios.get("http://127.0.0.1:8000/compras/compraproduct/",[],{
         headers: {
-          'Content-Type':'application/json',
+          //'Content-Type':'application/json',
           Authorization: "JWT" + this.token
         }
         }

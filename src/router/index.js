@@ -61,6 +61,11 @@ const routes = [
     name: 'editarproveedor',
     component: () => import(/* webpackChunkName: "Inicio" */ '../views/admin/EditarProveedor.vue')
   },
+  {
+    path: '/producto/:id/editar',
+    name: 'editarproduct',
+    component: () => import(/* webpackChunkName: "Inicio" */ '../views/admin/EditarProducts.vue')
+  },
 ]
 
 const router = new VueRouter({

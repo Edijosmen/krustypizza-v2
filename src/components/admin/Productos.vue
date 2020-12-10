@@ -11,6 +11,7 @@
                             <th scope="col">Descripcion</th>
                             <th scope="col">precio</th>
                             <th scope="col">Categoria</th>
+                            <th scope="col">Accion</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -20,6 +21,12 @@
                             <td>{{producto.descripcion}}</td>
                             <td>{{producto.precio}}</td>
                             <td>{{producto.categoria}}</td>
+                            <td>
+                                <b-button-group>
+                                    <a :href="`/producto/${producto.id}/editar`" class="btn btn-info">Editar</a>
+                                    <a class="ml-2 btn btn-danger" @click="Eliminar(producto.id)">Borrar</a>
+                                </b-button-group>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -45,7 +52,9 @@
 </template>
 
 <script>
+import productos from '../../services/Productos.js'
 export default {
+    
     name: "Productos",
     async created(){
       try {
@@ -59,6 +68,14 @@ export default {
       productos(){
         return this.$store.state.adm.listproducts;
       }
+    },
+    methods: {
+        Eliminar(id){
+            productos.delete(id).then( ()=> {
+                this.$store.dispatch("getProducto")
+            })
+        },
+
     }
 }
 

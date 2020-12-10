@@ -3,7 +3,7 @@ import proveedor from '../services/admin/Proveedor.js'
 export default {
     state: {
         listproducts: [],
-        proveedores:[]
+        proveedores:[],
       },
     mutations: {
         setProductos(state, products){
@@ -49,7 +49,6 @@ export default {
                 .then(response=>{
                     console.log(response.data)
                     commit('setProveedor',response.data.results)
-                    //this.imagenes = response.data.results
                     resolve()
                 }) 
             })
